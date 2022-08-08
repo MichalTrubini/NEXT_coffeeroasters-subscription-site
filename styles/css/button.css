@@ -1,0 +1,25 @@
+.button {
+  background-color: #0E8784;
+  border: none;
+  display: inline-block;
+  color: #FEFCF7;
+  border-radius: 6px;
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  padding: 1.5rem 3.2rem;
+  font-family: "Fraunces", serif;
+}
+.button__hero {
+  margin-top: 3.9rem;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #66D2CF;
+}
+
+@media screen and (min-width: 1440px) {
+  .button__hero {
+    margin-top: 5.6rem;
+  }
+}/*# sourceMappingURL=button.css.map */

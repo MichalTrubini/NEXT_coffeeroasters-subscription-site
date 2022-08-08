@@ -1,14 +1,41 @@
-html,
-body {
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Fraunces:opsz,wght@9..144,900&display=swap');
+
+* {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+html,
+body {
+
+  background-color: #fefcf7;
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  scroll-behavior: smooth;
+  font-size:62.5%;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Fraunces", serif;
+  font-weight: 900;
 }
 
 * {
@@ -22,5 +49,39 @@ a {
   body {
     color: white;
     background: black;
+  }
+}
+
+.margin-fix {
+  margin: 0 2.4rem;
+}
+
+.page {
+  max-width: 198rem;
+  margin: auto;
+}
+
+main {
+  margin-top: 9.3rem;
+}
+
+@media screen and (min-width: 525px) {
+  body {
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    margin-top: 12.5rem;
+  }
+  .margin-fix {
+    margin: 0 4rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .margin-fix {
+    margin: 0 8rem;
   }
 }

@@ -1,0 +1,88 @@
+.order-summary__overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.order-summary__container {
+  text-align: left;
+  position: absolute;
+  z-index: 9999;
+  background: #fefcf7;
+  border-radius: 8px;
+  width: 87.2%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.order-summary__header {
+  background-color: #2C343E;
+  font-size: 2.8rem;
+  line-height: 3.2rem;
+  color: #FEFCF7;
+  padding: 2.8rem 2.4rem;
+  border-radius: 8px 8px 0 0;
+}
+.order-summary__wrapper {
+  padding: 4rem 2.4rem 2.4rem;
+}
+.order-summary__summary {
+  font-family: "Fraunces", serif;
+  font-size: 2.4rem;
+  line-height: 4rem;
+  color: #83888F;
+}
+.order-summary__choice {
+  color: #0E8784;
+}
+.order-summary__notice {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  color: #333D4B;
+  margin-bottom: 2.4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .order-summary__container {
+    width: 70%;
+    max-width: 54rem;
+  }
+  .order-summary__header {
+    font-size: 4rem;
+    line-height: 4.8rem;
+    padding: 4.8rem 5.6rem 4rem;
+  }
+  .order-summary__wrapper {
+    padding: 5.7rem;
+  }
+  .order-summary__summary {
+    margin-bottom: 0.7rem;
+  }
+  .order-summary__notice {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    margin-bottom: 4.7rem;
+  }
+  .order-summary__price {
+    font-family: "Fraunces", serif;
+    font-size: 3.2rem;
+    line-height: 3.6rem;
+    color: #333D4B;
+  }
+  .order-summary__checkout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .order-summary__button {
+    padding: 1.5rem 6.4rem;
+  }
+}/*# sourceMappingURL=orderSummary.css.map */

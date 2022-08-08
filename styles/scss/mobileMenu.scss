@@ -1,0 +1,32 @@
+@import 'variables';
+
+.mobile-menu{ 
+    position: absolute;
+    top: 9.3rem;
+    z-index: 99;
+    width: 100%;
+    background-color: $Light-Cream;
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+        padding-top: 4rem;
+        
+    }
+
+    &__list-item {
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+        font-family: "Fraunces", serif;
+        color: $par-dark;
+    }
+
+    &__overlay {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        bottom: 0;
+        background: linear-gradient(0deg, rgba(254, 252, 247, 0.9) 0%, #FEFCF7 80%);
+    }
+}

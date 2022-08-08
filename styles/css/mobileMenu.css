@@ -1,0 +1,26 @@
+.mobile-menu {
+  position: absolute;
+  top: 9.3rem;
+  z-index: 99;
+  width: 100%;
+  background-color: #FEFCF7;
+}
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  padding-top: 4rem;
+}
+.mobile-menu__list-item {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  font-family: "Fraunces", serif;
+  color: #333D4B;
+}
+.mobile-menu__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(254, 252, 247, 0.9) 0%, #FEFCF7 80%);
+}/*# sourceMappingURL=mobileMenu.css.map */

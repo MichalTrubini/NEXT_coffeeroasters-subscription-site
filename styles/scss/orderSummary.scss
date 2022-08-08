@@ -1,0 +1,105 @@
+@import "variables";
+
+.order-summary {
+  &__overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &__container {
+    text-align: left;
+    position: absolute;
+    z-index: 9999;
+    background: #fefcf7;
+    border-radius: 8px;
+    width: 87.2%;
+    height: fit-content;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  &__header {
+    background-color: $background-dark;
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+    color: $header-light;
+    padding: 2.8rem 2.4rem;
+    border-radius: 8px 8px 0 0;
+  }
+
+  &__wrapper {
+    padding: 4rem 2.4rem 2.4rem;
+  }
+
+  &__summary {
+    font-family: "Fraunces", serif;
+    font-size: 2.4rem;
+    line-height: 4rem;
+    color: $Grey;
+  }
+
+  &__choice {
+    color: $Dark-Cyan;
+  }
+
+  &__notice {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    color: $par-dark;
+    margin-bottom: 2.4rem;
+  }
+}
+
+@media screen and (min-width:768px) {
+    .order-summary {
+        &__container {
+            width: 70%;
+            max-width: 54rem;
+        }
+
+        &__header {
+            font-size: 4rem;
+            line-height: 4.8rem;
+            padding: 4.8rem 5.6rem 4rem;
+        }
+
+        &__wrapper {
+            padding: 5.7rem;
+        }
+
+        &__summary {
+            margin-bottom: 0.7rem;
+        }
+
+        &__notice {
+            font-size: 1.6rem;
+            line-height: 2.6rem;
+            margin-bottom: 4.7rem;
+        }
+
+        &__price {
+            font-family: "Fraunces", serif;
+            font-size: 3.2rem;
+            line-height: 3.6rem;
+            color: $header-dark;
+        }
+
+        &__checkout {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__button {
+            padding: 1.5rem 6.4rem;
+        }
+    }
+}

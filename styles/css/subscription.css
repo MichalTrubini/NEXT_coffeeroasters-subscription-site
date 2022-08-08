@@ -1,0 +1,228 @@
+.plan {
+  background-color: #2C343E;
+  border-radius: 1rem;
+  padding: 8rem 2.4rem;
+  margin-bottom: 12rem;
+}
+.plan__header, .plan__text {
+  color: #FEFCF7;
+}
+.plan__container-left {
+  display: none;
+}
+
+.choices {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12rem;
+}
+.choices__header {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  color: #83888F;
+  width: 80%;
+}
+.choices__header::before {
+  content: "";
+  display: block;
+  width: 19px;
+  height: 13px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: rotate(0deg);
+  transition: transform 1s ease;
+  background: url("../../images/plan/desktop/icon-arrow.svg") no-repeat;
+}
+.choices__header-selected::before {
+  transform: rotate(-180deg);
+}
+.choices__container {
+  overflow: hidden;
+}
+.choices__row {
+  margin-bottom: 3.2rem;
+  position: relative;
+}
+.choices__items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  max-height: 0;
+  transition: all 0.5s;
+}
+.choices__items-selected {
+  max-height: 500px;
+  margin-bottom: 9.6rem;
+  transition: all 1s;
+}
+.choices__card {
+  padding: 2.4rem;
+  background-color: #F4F1EB;
+  border-radius: 0.8rem;
+  color: #333D4B;
+}
+.choices__card-selected {
+  background-color: #0E8784 !important;
+  color: #FEFCF7;
+}
+.choices__card-header {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  margin-bottom: 0.8rem;
+}
+.choices__card-text {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+.summary {
+  margin-bottom: 12rem;
+  position: relative;
+}
+.summary__content {
+  background-color: #2C343E;
+  border-radius: 1rem;
+  padding: 3.2rem 2.4rem;
+  color: #FEFCF7;
+  text-align: left;
+  margin-bottom: 5.6rem;
+}
+.summary__title {
+  text-transform: uppercase;
+  opacity: 0.5;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  margin-bottom: 0.8rem;
+}
+.summary__summary {
+  font-size: 2.4rem;
+  line-height: 4rem;
+  font-family: "Fraunces", serif;
+}
+.summary__choice {
+  color: #0E8784;
+}
+
+#summary__warning {
+  color: red;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+  .plan {
+    padding: 5.6rem 3.4rem 6.3rem 4.5rem;
+  }
+  .choices {
+    margin-bottom: 14.4rem;
+  }
+  .choices__row {
+    margin-bottom: 4rem;
+  }
+  .choices__header {
+    font-size: 3.2rem;
+    line-height: 4.8rem;
+  }
+  .choices__header:hover, .choices__header:focus {
+    cursor: pointer;
+  }
+  .choices__items {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .choices__card {
+    padding: 3.2rem 2.5rem 8.4rem;
+    width: 100%;
+  }
+  .choices__card:hover, .choices__card:focus {
+    cursor: pointer;
+    background-color: #FDD6BA;
+  }
+  .choices__card-header {
+    margin-bottom: 2.4rem;
+  }
+  .choices__items-selected {
+    max-height: 500px;
+    margin-bottom: 10rem;
+  }
+  .summary {
+    margin-bottom: 14.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .summary__content {
+    padding: 2.74rem 4.4rem;
+    margin-bottom: 4rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .plan {
+    margin: 0 8rem 16.8rem;
+    padding: 8.5rem 15rem 9.9rem 8.5rem;
+  }
+  .plan__wrapper {
+    display: flex;
+    gap: 12.5rem;
+  }
+  .plan__container-left {
+    display: flex;
+    flex-direction: column;
+    max-width: 20%;
+    width: 100%;
+  }
+  .plan__item {
+    display: flex;
+    gap: 2.85rem;
+    font-family: "Fraunces", serif;
+    color: rgba(51, 61, 75, 0.4);
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    padding: 2.4rem 0;
+    border-bottom: 1px solid rgba(131, 136, 143, 0.25);
+  }
+  .plan__item:hover, .plan__item:focus {
+    cursor: pointer;
+    color: #333D4B;
+  }
+  .plan__item:first-child {
+    padding: 0 0 2.4rem;
+  }
+  .plan__item:last-child {
+    border: none;
+  }
+  .choices {
+    margin: 0 0 8.8rem 0;
+  }
+  .choices__header {
+    font-size: 4rem;
+    line-height: 4.8rem;
+  }
+  .choices__row {
+    margin-bottom: 5.6rem;
+  }
+  .choices__card {
+    padding: 3.2rem 2.8rem 8.4rem;
+  }
+  .choices__items-selected {
+    max-height: 500px;
+    margin-bottom: 8.8rem;
+  }
+  .summary {
+    margin: 0 0 16.8rem 0;
+    align-items: flex-end;
+  }
+  .summary__content {
+    padding: 2.7rem 6.4rem;
+  }
+  .summary__warning {
+    text-align: right;
+  }
+  #summary__warning {
+    font-size: 2.4rem;
+    margin-top: 1rem;
+  }
+}/*# sourceMappingURL=subscription.css.map */
