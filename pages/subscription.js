@@ -3,10 +3,12 @@ import Steps from "../components/Steps";
 import ChoicesSingle from "../components/ChoiceSingle";
 import Layout from '../components/Layout/Layout';
 import Button from "../components/Button";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import OrderSummary from "../components/OrderSummary";
 
 import { selectionActions } from "../store";
 import { useDispatch, useSelector } from "react-redux";
+import Portal from "../components/Portal";
 
 const Subscription = () => {
   const choicesLong = [
@@ -169,26 +171,20 @@ const Subscription = () => {
     
   }
 
+  const showSummary = useSelector(state => state.selection.orderSummaryVisible);
   const clickedID = useSelector((state) => state.selection.clickedIDs);
   const resultSelection = useSelector((state) => state.selection.resultSelection);
 
-  const [screenWidth, setScreenWidth] = useState(0);
-
   useEffect(() => {
-
-    const width = window.innerWidth; 
-    setScreenWidth(width);
 
     if (incompleteChoiceID !== '') {
 
       // scroll adjusted for fixed header
-      const yOffset = () => {
-        if (screenWidth < 767) return -100
-        else return -120;
-      }; 
+      const yOffset = -120;
 
+      // scroll to first choice not selected
       const element = document.querySelector(`[datatest=${incompleteChoiceID}]`);
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset();
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({top: y, behavior: 'smooth'});
 
       // expand element that was scrolled to
@@ -198,13 +194,16 @@ const Subscription = () => {
       let warning = document.createElement("div");
       warning.setAttribute('id','summary__warning');
       warning.appendChild(document.createTextNode('Please complete your selection'));
-
       element.parentNode.insertBefore(warning, element.nextSibling)
     }
-    
+
   },[incompleteChoiceID, dispatch]);
 
   return (
+    <>
+    <Portal selector={'#Portal'}>
+      {showSummary && <OrderSummary/>}
+    </Portal>
     <Layout>
       <Hero
         className="hero__subscription"
@@ -288,7 +287,9 @@ const Subscription = () => {
           </section>
         </div>
       </div>
+      
     </Layout>
+    </>
   );
 };
 

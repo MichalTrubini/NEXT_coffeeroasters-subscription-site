@@ -1,19 +1,34 @@
-//import {useDispatch} from 'react-redux';
-//import { visibilityActions } from '../store';
+import {useDispatch, useSelector} from 'react-redux';
+import { visibilityActions } from '../../store';
+import MobileMenu from '../MobileMenu';
+import { useEffect } from 'react';
 
 import logo from '../../public/images/shared/desktop/logo.svg';
 import Link from 'next/link';
 import Image from 'next/image';
+import Portal from "../Portal";
 
 const Header = (props) => {
    
-    //const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const showMenuHandler = () => {
-        //dispatch (visibilityActions.isVisible())
+        dispatch (visibilityActions.isVisible())
     }
 
+    const showMenu = useSelector(state => state.visibility.showElement);
+
+    useEffect(() => {
+        showMenu === true ? document.body.style.overflow = "hidden" : document.body.style.overflow = "visible";
+    },[showMenu]) 
+    
+
     return ( 
+
+        <>
+        <Portal selector={'#Portal'}>
+            {showMenu && <MobileMenu/>}
+        </Portal>
         <header className={props.className + " header"}>
             <nav className="header__nav">
                 <div className='header__logo-container'>
@@ -29,6 +44,8 @@ const Header = (props) => {
                 </ul>
             </nav>
         </header>
+        </>
+
      );
 }
  
