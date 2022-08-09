@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Footer = () => {
+  
   const menuItems = [
     {
       page: 'home',
@@ -25,7 +26,9 @@ const Footer = () => {
   return (
     <footer className="footer margin-fix">
       <div className="footer__container ">
-        <Image src={logo} alt="coffeeroasters" className="footer__logo" />
+        <div className="footer__logo-container">
+          <Image src={logo} alt="coffeeroasters" className="footer__logo" />
+        </div>
         <ul className="footer__list">
           {menuItems.map((item) => (
             <li key={item.page} className="footer__list-item"><Link href={item.path}>
@@ -36,11 +39,7 @@ const Footer = () => {
         <div className="footer__social">
           <Image src={facebook} alt="facebook" className="footer__social-icon" />
           <Image src={twitter} alt="twitter" className="footer__social-icon" />
-          <Image
-            src={instagram}
-            alt="instagram"
-            className="footer__social-icon"
-          />
+          <Image src={instagram} alt="instagram" className="footer__social-icon"/>
         </div>
       </div>
     </footer>

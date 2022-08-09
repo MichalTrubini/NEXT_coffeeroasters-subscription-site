@@ -17,7 +17,7 @@
   text-transform: uppercase;
   color: #83888F;
 }
-.footer__logo {
+.footer__logo-container {
   width: 21.7rem;
 }
 .footer__list {
@@ -34,7 +34,7 @@
   .footer__container {
     gap: 0;
   }
-  .footer__logo {
+  .footer__logo-container {
     margin-bottom: 3.2rem;
     width: 23.6rem;
   }
@@ -58,7 +58,7 @@
     flex-direction: row;
     justify-content: space-between;
   }
-  .footer__logo {
+  .footer__logo-container {
     margin-bottom: 0;
   }
   .footer__list {

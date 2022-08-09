@@ -3,10 +3,13 @@
 .commitment {
     
     margin-bottom: 12rem;
-    
+
+    &__img-container {
+        margin-bottom: 4.8rem;
+    }
+
     &__img {
         border-radius: 8px;
-        margin-bottom: 4.8rem;
     }
 
     &__header {
@@ -45,7 +48,7 @@
         opacity: 0.8;
     }
 
-    &__img {
+    &__img-container {
         position: absolute;
         top: -75px;
         left: 0;
@@ -53,6 +56,10 @@
         margin: auto;
         border-radius: 0.8rem;
         width: 277px;
+    }
+
+    &__img {
+        border-radius: 0.8rem;
     }
 }
 
@@ -106,7 +113,7 @@
         gap: 6.9rem;
         margin-bottom: 30.4rem;
 
-        &__img {
+        &__img-container {
             margin: 0;
             width: 281px;
         }
@@ -126,7 +133,7 @@
             line-height: 4.8rem;
         }
 
-        &__img {
+        &__img-container {
             width: 57.3rem;
             top: -155px;
         }
@@ -168,7 +175,7 @@
             width: 37.5vw;
         }
 
-        &__img {
+        &__img-container {
             width: 31vw;
             max-width: 45rem;
         }
@@ -191,7 +198,7 @@
             width: 37.5vw;
         }
 
-        &__img {
+        &__img-container {
             max-width: 45rem;
             width: 31vw;
             left: unset;

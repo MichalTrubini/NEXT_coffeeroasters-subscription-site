@@ -16,12 +16,16 @@ const Header = (props) => {
     return ( 
         <header className={props.className + " header"}>
             <nav className="header__nav">
-                <Link href={'/'}><a><Image src={logo} alt="coffeeroasters" className='header__logo'/></a></Link>
-                <Image className='header__hamburger' src={props.src} alt="menu" onClick={showMenuHandler}/>
+                <div className='header__logo-container'>
+                    <Link href={'/'}><a><Image src={logo} alt="coffeeroasters" className='header__logo'/></a></Link>
+                </div>
+                <div className='header__hamburger-container'>
+                    <Image className='header__hamburger' src={props.src} alt="menu" onClick={showMenuHandler} layout='intrinsic'/>
+                </div>
                 <ul className='header__list'>
-                    <li><Link href={'/'} className='header__list-item'>Home</Link></li>
-                    <li><Link href={'/about'} className='header__list-item'>About Us</Link></li>
-                    <li><Link href={'/subscription'} className='header__list-item'>Create Your Plan</Link></li>
+                    <li className='header__list-item'><Link href={'/'}>Home</Link></li>
+                    <li className='header__list-item'><Link href={'/about'} >About Us</Link></li>
+                    <li className='header__list-item'><Link href={'/subscription'}>Create Your Plan</Link></li>
                 </ul>
             </nav>
         </header>

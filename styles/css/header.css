@@ -13,7 +13,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.header__logo {
+.header__logo-container {
   width: 16.3rem;
 }
 .header__list {
@@ -24,7 +24,7 @@
 }
 
 @media screen and (min-width: 525px) {
-  .header__hamburger {
+  .header__hamburger-container {
     display: none;
   }
   .header__list {
@@ -46,7 +46,7 @@
   .header__nav {
     padding: 4rem 0 5.3rem;
   }
-  .header__logo {
+  .header__logo-container {
     width: 263px;
   }
   .header__list-item:hover, .header__list-item:focus {

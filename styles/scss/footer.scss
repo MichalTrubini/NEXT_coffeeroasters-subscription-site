@@ -22,7 +22,7 @@
         color: $footer-list;
     }
 
-    &__logo {
+    &__logo-container {
         width:21.7rem;
     }
 
@@ -46,7 +46,7 @@
             gap: 0;
         }
 
-        &__logo {
+        &__logo-container  {
             margin-bottom: 3.2rem;
             width: 23.6rem;
         }
@@ -79,7 +79,7 @@
             justify-content: space-between;
         }
 
-        &__logo {
+        &__logo-container  {
             margin-bottom: 0;
         }
 

@@ -17,7 +17,7 @@
         align-items: center;
     }
 
-    &__logo {
+    &__logo-container {
         width: 16.3rem;
     }
 
@@ -34,7 +34,7 @@
 
     .header {
 
-        &__hamburger {
+        &__hamburger-container {
             display: none;
         }
 
@@ -63,7 +63,7 @@
             padding: 4rem 0 5.3rem;
         }
 
-        &__logo {
+        &__logo-container {
             width: 263px;
         }
 

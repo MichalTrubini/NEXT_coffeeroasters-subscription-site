@@ -33,7 +33,7 @@
   top: 50%;
   transform: rotate(0deg);
   transition: transform 1s ease;
-  background: url("../../images/plan/desktop/icon-arrow.svg") no-repeat;
+  background: url("../../public/images/plan/desktop/icon-arrow.svg") no-repeat;
 }
 .choices__header-selected::before {
   transform: rotate(-180deg);

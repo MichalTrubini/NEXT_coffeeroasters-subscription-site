@@ -1,9 +1,11 @@
 .commitment {
   margin-bottom: 12rem;
 }
+.commitment__img-container {
+  margin-bottom: 4.8rem;
+}
 .commitment__img {
   border-radius: 8px;
-  margin-bottom: 4.8rem;
 }
 .commitment__header {
   font-size: 3.2rem;
@@ -36,7 +38,7 @@
   color: #FEFCF7;
   opacity: 0.8;
 }
-.quality__img {
+.quality__img-container {
   position: absolute;
   top: -75px;
   left: 0;
@@ -44,6 +46,9 @@
   margin: auto;
   border-radius: 0.8rem;
   width: 277px;
+}
+.quality__img {
+  border-radius: 0.8rem;
 }
 
 .locations {
@@ -89,7 +94,7 @@
     gap: 6.9rem;
     margin-bottom: 30.4rem;
   }
-  .commitment__img {
+  .commitment__img-container {
     margin: 0;
     width: 281px;
   }
@@ -105,7 +110,7 @@
     font-size: 3.2rem;
     line-height: 4.8rem;
   }
-  .quality__img {
+  .quality__img-container {
     width: 57.3rem;
     top: -155px;
   }
@@ -138,7 +143,7 @@
   .commitment__content {
     width: 37.5vw;
   }
-  .commitment__img {
+  .commitment__img-container {
     width: 31vw;
     max-width: 45rem;
   }
@@ -157,7 +162,7 @@
     line-height: 2.6rem;
     width: 37.5vw;
   }
-  .quality__img {
+  .quality__img-container {
     max-width: 45rem;
     width: 31vw;
     left: unset;
