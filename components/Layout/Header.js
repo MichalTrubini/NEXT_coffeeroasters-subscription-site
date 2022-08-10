@@ -4,6 +4,8 @@ import MobileMenu from '../MobileMenu';
 import { useEffect } from 'react';
 
 import logo from '../../public/images/shared/desktop/logo.svg';
+import hamburger from '../../public/images/shared/mobile/icon-hamburger.svg';
+import cross from '../../public/images/shared/mobile/icon-close.svg';
 import Link from 'next/link';
 import Image from 'next/image';
 import Portal from "../Portal";
@@ -35,7 +37,7 @@ const Header = (props) => {
                     <Link href={'/'}><a><Image src={logo} alt="coffeeroasters" className='header__logo'/></a></Link>
                 </div>
                 <div className='header__hamburger-container'>
-                    <Image className='header__hamburger' src={props.src} alt="menu" onClick={showMenuHandler} layout='intrinsic'/>
+                    <Image className='header__hamburger' src={showMenu ? hamburger : cross} alt="menu" onClick={showMenuHandler} layout='intrinsic'/>
                 </div>
                 <ul className='header__list'>
                     <li className='header__list-item'><Link href={'/'}>Home</Link></li>

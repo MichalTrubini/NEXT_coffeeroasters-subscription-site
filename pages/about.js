@@ -49,8 +49,20 @@ const About = () => {
 
     useEffect(() => {
 
-        const width = window.innerWidth; 
-        setScreenWidth(width);
+        const widthInitial = window.innerWidth;
+        setScreenWidth(widthInitial);
+
+        function getWindowDimensions() {
+            const widthCurrent = window.innerWidth;
+            return widthCurrent; 
+        }
+
+        function handleResize() {
+            setScreenWidth(getWindowDimensions());
+        }
+      
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
 
     },[]);
 
