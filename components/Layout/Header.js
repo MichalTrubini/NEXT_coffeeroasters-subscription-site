@@ -37,7 +37,7 @@ const Header = (props) => {
                     <Link href={'/'}><a><Image src={logo} alt="coffeeroasters" className='header__logo'/></a></Link>
                 </div>
                 <div className='header__hamburger-container'>
-                    <Image className='header__hamburger' src={showMenu ? hamburger : cross} alt="menu" onClick={showMenuHandler} layout='intrinsic'/>
+                    <Image className='header__hamburger' src={!showMenu ? hamburger : cross} alt="menu" onClick={showMenuHandler} layout='intrinsic'/>
                 </div>
                 <ul className='header__list'>
                     <li className='header__list-item'><Link href={'/'}>Home</Link></li>

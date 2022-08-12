@@ -170,8 +170,8 @@
     top: -90px;
   }
   .locations {
-    max-width: 182rem;
-    margin: 0 8rem 16.8rem;
+    width: 77%;
+    margin: 0 auto 16.8rem;
   }
   .locations__items {
     gap: 9.5rem;

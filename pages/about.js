@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import { MongoClient } from 'mongodb';
 import Hero from '../components/Hero';
 
 import commitmentSmall from '../public/images/about/mobile/image-commitment.jpg';
@@ -13,37 +13,7 @@ import Layout from '../components/Layout/Layout';
 
 import Image from 'next/image';
 
-const About = () => {
-
-    const locations = [
-        {
-            id: 1,
-            src: './images/about/desktop/illustration-uk.svg',
-            country: 'United Kingdom',
-            street: '68 Asfordby Rd',
-            city: 'Alcaston',
-            zip: 'SY6 1YA',
-            phone: '+44 1241 918425'
-        },
-        {
-            id: 2,
-            src: './images/about/desktop/illustration-canada.svg',
-            country: 'Canada',
-            street: '1528 Eglinton Avenue',
-            city: 'Toronto  Ontario',
-            zip: 'M4P 1A6',
-            phone: '+1 416 485 2997'
-        },
-        {
-            id: 3,
-            src: './images/about/desktop/illustration-australia.svg',
-            country: 'Australia',
-            street: '36 Swanston Street',
-            city: 'Kewell',
-            zip: 'Victoria',
-            phone: '+61 4 9928 3629'
-        }
-    ]
+const About = ({locations}) => {
 
     const [screenWidth, setScreenWidth] = useState(0);
 
@@ -115,8 +85,38 @@ const About = () => {
                     )}
                 </div>
             </section>
+            
         </Layout>
      );
 }
- 
+
+export async function getStaticProps() {
+    const client = await MongoClient.connect(
+      "mongodb+srv://admin:wSEwICprw1IFGg9Z@cluster0.tfa6tfc.mongodb.net/coffeeroasters?retryWrites=true&w=majority"
+    );
+  
+    const db = client.db();
+  
+    const location = db.collection("locations");
+  
+    const locations = await location.find().toArray();
+  
+    client.close();
+  
+    return {
+      props: {
+        locations: locations.map(location => ({
+            id: location.id,
+            src: location.src,
+            country: location.country,
+            street: location.street,
+            city: location.city,
+            zip: location.zip,
+            phone: location.phone
+        }))
+      },
+      revalidate: 1,
+    };
+  }
+
 export default About;

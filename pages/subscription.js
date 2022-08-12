@@ -5,147 +5,13 @@ import Layout from '../components/Layout/Layout';
 import Button from "../components/Button";
 import React, { useEffect } from "react";
 import OrderSummary from "../components/OrderSummary";
+import { MongoClient } from 'mongodb';
 
 import { selectionActions } from "../store";
 import { useDispatch, useSelector } from "react-redux";
 import Portal from "../components/Portal";
 
-const Subscription = () => {
-  const choicesLong = [
-    {
-      id: "id-1",
-      header: "How do you drink your coffee?",
-      content: [
-        {
-          id: "id-1-1",
-          type: "Capsule",
-          text: "Compatible with Nespresso systems and similar brewers",
-        },
-        {
-          id: "id-1-2",
-          type: "Filter",
-          text: "For pour over or drip methods like Aeropress, Chemex, and V60",
-        },
-        {
-          id: "id-1-3",
-          type: "Espresso",
-          text: "Dense and finely ground beans for an intense, flavorful experience",
-        },
-      ],
-    },
-    {
-      id: "id-2",
-      header: "What type of coffee?",
-      content: [
-        {
-          id: "id-2-1",
-          type: "Single Origin",
-          text: "Distinct, high quality coffee from a specific family-owned farm",
-        },
-        {
-          id: "id-2-2",
-          type: "Decaf",
-          text: "Just like regular coffee, except the caffeine has been removed",
-        },
-        {
-          id: "id-2-3",
-          type: "Blended",
-          text: "Combination of two or three dark roasted beans of organic coffees",
-        },
-      ],
-    },
-    {
-      id: "id-3",
-      header: "How much would you like?",
-      content: [
-        {
-          id: "id-3-1",
-          type: "250g",
-          text: "Perfect for the solo drinker. Yields about 12 delicious cups.",
-        },
-        {
-          id: "id-3-2",
-          type: "500g",
-          text: "Perfect option for a couple. Yields about 40 delectable cups.",
-        },
-        {
-          id: "id-3-3",
-          type: "1000g",
-          text: "Perfect for offices and events. Yields about 90 delightful cups.",
-        },
-      ],
-    },
-    {
-      id: "id-4",
-      header: "Want us to grind them?",
-      content: [
-        {
-          id: "id-4-1",
-          type: "Wholebean",
-          text: "Best choice if you cherish the full sensory experience",
-        },
-        {
-          id: "id-4-2",
-          type: "Filter ",
-          text: "For drip or pour-over coffee methods such as V60 or Aeropress",
-        },
-        {
-          id: "id-4-3",
-          type: "Cafetiére",
-          text: "Course ground beans specially suited for french press coffee",
-        },
-      ],
-    },
-    {
-      id: "id-5",
-      header: "How often should we deliver?",
-      content: [
-        {
-          id: "id-5-1",
-          type: "Every week",
-          text: "$7.20 per shipment. Includes free first-class shipping.",
-        },
-        {
-          id: "id-5-2",
-          type: "Every 2 weeks",
-          text: "$9.60 per shipment. Includes free priority shipping.",
-        },
-        {
-          id: "id-5-3",
-          type: "Every month",
-          text: "$12.00 per shipment. Includes free priority shipping.",
-        },
-      ],
-    },
-  ];
-
-  const choicesShort = [
-    {
-      id: "id-1",
-      number: '01',
-      type: "Preferences",
-    },
-    {
-      id: "id-2",
-      number: '02',
-      type: "Bean Type",
-    },
-    {
-      id: "id-3",
-      number: '03',
-      type: "Quantity",
-    },
-    {
-      id: "id-4",
-      number: '04',
-      type: "Grind Option",
-    },
-    {
-      id: "id-5",
-      number: '05',
-      type: "Deliveries",
-    },
-  ];
+const Subscription = ({choicesLong, choicesShort}) => {
 
   const dispatch = useDispatch();
 
@@ -287,10 +153,42 @@ const Subscription = () => {
           </section>
         </div>
       </div>
-      
     </Layout>
     </>
   );
 };
+
+export async function getStaticProps() {
+  const client = await MongoClient.connect(
+    "mongodb+srv://admin:wSEwICprw1IFGg9Z@cluster0.tfa6tfc.mongodb.net/coffeeroasters?retryWrites=true&w=majority"
+  );
+
+  const db = client.db();
+
+  const choiceLong = db.collection("choicesLong");
+  const choiceShort = db.collection("choicesShort");
+
+  const choicesLong = await choiceLong.find().toArray();
+  const choicesShort = await choiceShort.find().toArray();
+
+  client.close();
+
+  return {
+    props: {
+      choicesLong: choicesLong.map(choiceLong => ({
+          id: choiceLong.id,
+          header: choiceLong.header,
+          content: choiceLong.content
+      })),
+      choicesShort: choicesShort.map(choiceShort=> ({
+        id: choiceShort.id,
+        number: choiceShort.number,
+        type: choiceShort.type
+    })),
+    },
+    revalidate: 1,
+  };
+}
+
 
 export default Subscription;
