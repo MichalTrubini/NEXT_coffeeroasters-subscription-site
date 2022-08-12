@@ -6,7 +6,7 @@ import Button from "../components/Button";
 import React, { useEffect } from "react";
 import OrderSummary from "../components/OrderSummary";
 import { MongoClient } from 'mongodb';
-
+import Head from 'next/head';
 import { selectionActions } from "../store";
 import { useDispatch, useSelector } from "react-redux";
 import Portal from "../components/Portal";
@@ -67,6 +67,13 @@ const Subscription = ({choicesLong, choicesShort}) => {
 
   return (
     <>
+    <Head>
+      <title>Coffeeroasters subscribe</title>
+      <meta 
+        name="description"
+        content="Coffee website" 
+      />
+    </Head>
     <Portal selector={'#Portal'}>
       {showSummary && <OrderSummary/>}
     </Portal>
