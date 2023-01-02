@@ -1,4 +1,4 @@
-# Entertainment app
+# Subscription app
 
 This project was created using figma design, courtesy of [Frontend Mentor](https://www.frontendmentor.io/challenges/coffeeroasters-subscription-site-5Fc26HVY6)
 
