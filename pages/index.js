@@ -91,7 +91,7 @@ const Home = ({ collections, highlights }) => {
 
 export async function getStaticProps() {
   const client = await MongoClient.connect(
-    "mongodb+srv://admin:wSEwICprw1IFGg9Z@cluster0.tfa6tfc.mongodb.net/coffeeroasters?retryWrites=true&w=majority"
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.tfa6tfc.mongodb.net/coffeeroasters?retryWrites=true&w=majority`
   );
 
   const db = client.db();
